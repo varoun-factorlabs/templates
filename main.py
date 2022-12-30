@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from werkzeug.serving import run_simple
+#from werkzeug.serving import run_simple
 import os
 import proc_fins
 
@@ -38,5 +38,6 @@ def result():
                            dood_num=str(Doodle).zfill(4))
 
 
-run_simple("0.0.0.0", 5407, app, use_reloader=False)
+app.run(host='127.0.0.9',port=4455,debug=True)
+#run_simple("0.0.0.0", 5407, app, use_reloader=False)
 #app.run(host='0.0.0.0', port=8080)
