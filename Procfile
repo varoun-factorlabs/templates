@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:4455 main:app
+web: gunicorn -b 0.0.0.0:8080 main:app
