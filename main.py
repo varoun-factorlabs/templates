@@ -12,30 +12,38 @@ app.config['UPLOAD_FOLDER'] = RESULTS_FOLDER
 
 @app.route('/')
 def index():
-  return render_template("index.html")
+  remix = False
+  return render_template("gallery.html", remix=remix)
 
 
-@app.route('/compute')
-def student():
-  return render_template('compute.html')
+# @app.route('/compute')
+# def student():
+#   return render_template('compute.html')
+
+# @app.route('/gallery')
+# def student():
+#   remix = False
+#   return render_template('gallery.html', remix=remix)
 
 
 @app.route('/result', methods=['POST', 'GET'])
 def result():
+  remix = True
   if request.method == 'POST':
     #result = request.form
     Doodle = request.form.get("Doodle")
     drink = request.form.get("drink")
     proc_fins.compute("AAA.png", "BBB.png", "final_new.png",
-                      str(Doodle).zfill(4), drink)
+                      str(Doodle), drink)
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'final_new.png')
     AAA = os.path.join(app.config['UPLOAD_FOLDER'], 'AAA.png')
     BBB = os.path.join(app.config['UPLOAD_FOLDER'], 'BBB.png')
-    return render_template("result.html",
-                           user_image=full_filename,
-                           AAA_image=AAA,
-                           BBB_image=BBB,
-                           dood_num=str(Doodle).zfill(4))
+    return render_template("gallery.html", remix=remix)
+    # return render_template("result.html",
+    #                        user_image=full_filename,
+    #                        AAA_image=AAA,
+    #                        BBB_image=BBB,
+    #                        dood_num=str(Doodle).zfill(4))
 
 
 

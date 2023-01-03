@@ -26,13 +26,17 @@ def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
 
   metadata = json.loads(response.text)
 
+  # print(DOOD_TKN)
+  # print(metadata)
+              
   image_metadata = metadata["metadata"]
 
   image_metadata_json = json.loads(image_metadata)
 
   image_hash = image_metadata_json["image"][7:]
 
-  image_URL = f'https://ipfs.moralis.io:2053/ipfs/{image_hash}'
+  #image_URL = f'https://ipfs.moralis.io:2053/ipfs/{image_hash}'
+  image_URL = f'https://gateway.moralisipfs.com/ipfs/{image_hash}'          
 
   print(image_URL)
 
@@ -65,7 +69,7 @@ def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
 
   # download drink image
 
-  drink_img = requests.get(drink_dict[DRINK_TKN]).content
+  drink_img = requests.get(DRINK_TKN).content
 
   with open('drink.png', 'wb') as handler:
     handler.write(drink_img)
