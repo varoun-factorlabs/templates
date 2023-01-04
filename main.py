@@ -15,6 +15,11 @@ def index():
   remix = False
   return render_template("gallery.html", remix=remix)
 
+@app.route('/templates.xyz')
+def home():
+  remix = False
+  return render_template("index.html", remix=remix)
+
 
 # @app.route('/compute')
 # def student():
