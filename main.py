@@ -32,13 +32,15 @@ def result():
   if request.method == 'POST':
     #result = request.form
     Doodle = request.form.get("Doodle")
+    # if isinstance(Doodle, int) == False:
+    #   raise ValueError("Number missing!")
     drink = request.form.get("drink")
     proc_fins.compute("AAA.png", "BBB.png", "final_new.png",
                       str(Doodle), drink)
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'final_new.png')
     AAA = os.path.join(app.config['UPLOAD_FOLDER'], 'AAA.png')
     BBB = os.path.join(app.config['UPLOAD_FOLDER'], 'BBB.png')
-    return render_template("gallery.html", remix=remix)
+    return render_template("gallery.html", remix=remix, dood_num=Doodle)
     # return render_template("result.html",
     #                        user_image=full_filename,
     #                        AAA_image=AAA,

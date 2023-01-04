@@ -27,7 +27,7 @@ def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   metadata = json.loads(response.text)
 
   # print(DOOD_TKN)
-  # print(metadata)
+  # print(url)
               
   image_metadata = metadata["metadata"]
 
