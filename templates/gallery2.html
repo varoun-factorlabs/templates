@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+        /*Setting Basic Dimensions to give
+        gallery view */
+        * {
+          margin:0;
+          padding:0;
+        }
+        body {
+          background-color: #1f2729;
+          }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            align-items: center;
+            position: absolute;
+            left: 45%; 
+           }
+        p{
+          color: white;
+          font-family: sans-serif;
+          text-align: left;
+          font-size: 24px;
+          padding: 10px;
+          top: 270px;
+          left: 505px;
+          position: absolute;
+        }
+        .navbar{
+        margin: auto;
+        padding: 5px 0;
+        width: 89%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        position: absolute;
+        left: 110px;
+        }
+/*         border: 5px outset white; */
+        .twitter-button{
+          color:#1d9bf0;
+          font-size: 30px;
+          padding: 15px;
+        }
+        .container{
+          font-size: 30px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 500px;
+          width:30%;
+          margin: 10px;
+/*           border: 5px outset white; */
+        }
+        .main_view{
+            height: 30rem;
+            width: 25%;
+            display: block;
+            position: absolute;
+            padding: 5px;
+            right: 120px;
+            top: 320px;
+            background: #8e9194;
+            border-radius: 20px;
+/*             border: 5px outset white; */
+        }
+        .main_view img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            border: 0px #8e9194;
+            border-radius: 20px;
+        }
+        .form-field {
+          display: block;
+          width: 100%;
+          padding: 8px 16px;
+          line-height: 20px;
+          font-size: 24px;
+          font-weight: 500;
+          font-family: sans-serif;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+          -webkit-appearance: none;
+          color: black;
+          border: #ffffff;
+          background: var(whitesmoke);
+          transition: border .3s ease;
+          &::placeholder {
+          color: black;
+    }
+        &:focus {
+          outline: none;
+          border-color: var(white);
+    }
+}
+
+        .form-group {
+          position: absolute;
+          left: 440px;
+          top: 170px;
+          display: flex;
+          width: 17.5%;
+/*           border: 5px outset white; */
+            & > span,
+          }
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+        .side_view{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            justify-content: center;
+            flex-wrap: wrap; 
+            position: absolute;
+            top: 320px;
+            padding:5px;
+            width: 50%;
+            left: 130px;
+            margin: 10px;
+        }
+        .side_view img{
+            width: 9rem;
+            height: 9rem;
+            object-fit: fill;
+            cursor: pointer;
+            margin:0.5rem;
+            background: #8e9194;
+            border-radius: 10px; 
+/*             border: solid 4px red; */
+         }
+        .side_view img:focus{
+          border:solid 5px #b1e582;
+          box-shadow: 0 0 10px #333;
+          -webkit-box-shadow: 0 0 10px #333;  
+          -moz-box-shadow: 0 0 10px #333;  
+          -o-box-shadow: 0 0 10px #333;  
+          -ms-box-shadow: 0 0 10px #333;
+        }
+        input[type=submit] {
+        background: #ceb373;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+        padding: 10px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        position: absolute;
+        top: 550px;
+        left: 48px;
+      }
+        p.visit {
+        white-space: nowrap;
+        border: none;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        position: absolute;
+        width: 70%;
+        top: 500px;
+        left:80px;
+      }
+    </style>
+</head>
+
+<body>
+  <!-- Heading of webpage -->
+  <div class="navbar">
+        <img src="https://i.ibb.co/2cCbLyQ/island-labs-FAW-03-1.jpg" width="140"
+        height="140" alt="Island Labs">
+        <h1>TEMPLATES</h1>
+        <a href="https://twitter.com/Island_Labs" target="_blank" class="twitter-button"><ion-icon name="logo-twitter" ></ion-icon></a>
+  </div>
+	   <form action = {{ url_for('result2') }} method = "POST">   
+      <div class="form-group">
+        <span style="text-align: center;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 24px;
+        font-family: sans-serif;
+        line-height: 25px;
+        color: #2d3748;
+        background: #ecf2f6;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px">Doodle ID</span>
+        {% if remix==True %} 
+          <input class="form-field" type="number" min="1" max="9999" id="Doodle_id" name = "Doodle" placeholder="Enter Doodle #" value={{ dood_num }}>
+        {% else %}
+          <input class="form-field" type="number" min="1" max="9999" name = "Doodle" placeholder="Enter Doodle #" value="">
+        {% endif %}
+      </div>
+      <i class="fa fa-plus" 
+        style="font-size:24px;
+        color:white;
+        position: absolute;
+        top: 240px;
+        left: 583px;"></i>
+      <input type="hidden" id="drink_id" name="drink" value="https://i.ibb.co/Bs344G7/01-Foreground.png">
+      <p>Select a drink</p>
+          <div class="side_view">
+    			<img tabindex="1" src="https://i.ibb.co/Bs344G7/01-Foreground.png" onclick="change(this.src)">
+    			<img tabindex="1" src="https://i.ibb.co/T1HdmZM/02-Foreground.png" onclick="change(this.src)">
+    			<img tabindex="1" src="https://i.ibb.co/cNXWxKV/03-Foreground.png" onclick="change(this.src)">
+    			<img tabindex="1" src="https://i.ibb.co/0t8bhqp/04-Foreground.png" onclick="change(this.src)">
+          <img tabindex="1" src="https://i.ibb.co/J23dY0k/05-Foreground.png" onclick="change(this.src)">
+          <img tabindex="1" src="https://i.ibb.co/HrLxJck/06-Foreground.png" onclick="change(this.src)">
+          <img tabindex="1" src="https://i.ibb.co/hsw78nY/07-Foreground.png" onclick="change(this.src)">
+          <img tabindex="1" src="https://i.ibb.co/Hn5CVVD/08-Foreground.png" onclick="change(this.src)">
+          <img tabindex="1" src="https://i.ibb.co/myKNncz/09-Foreground.png" onclick="change(this.src)">
+          <img tabindex="1" src="https://i.ibb.co/s2vtYV1/10-Foreground.png" onclick="change(this.src)">
+  		  </div>
+       <p><input type = "submit" value = "Remix" /></p>
+     </form>
+    
+    <!-- Main view of our gallery -->
+	  <div class="main_view">
+      {% if remix==True %}
+        <img src="static/results/underwater_doodle1.png" id="main" alt="Preview">
+      {% else %}
+        <img src="static/results/logo.png" id="main" alt="Preview">
+      {% endif %}
+      <p class="visit">
+        Visit <a target="_blank" style="color:#1d9bf0" href="https://fins.wtf/lastcall">fins.wtf</a> to mint free drinks.
+      </p>
+	  </div>
+<!--     <p><input class="save" value = "Download" onclick= "save2()"/></p> -->
+<!-- 	</div> -->
+
+	<script type="text/javascript">
+		const change = src => {
+			// document.getElementById('main').src = src
+      document.getElementById('drink_id').value = src     
+		}
+    // function save2() {
+    //   window.open(canvas.toDataURL("static/results/framed_doodle1.png"));
+    //   var gh = canvas.toDataURL('png');
+  
+    //   var a  = document.createElement('a');
+    //   a.href = gh;
+    //   a.download = 'Doodle.png';
+  
+    //   a.click()
+    // }
+	</script>
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

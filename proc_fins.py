@@ -6,7 +6,6 @@ import requests
 import wget
 import json
 
-
 def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
             DRINK_TKN: str):
 
