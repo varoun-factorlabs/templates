@@ -184,14 +184,56 @@ html {
         top: 500px;
         left:80px;
       }
+/* Sidenav css */
+.circle-img{
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  padding: 10px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #22222b;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: white;
+}
+/* Sidenav css */
     </style>
 </head>
 
 <body>
   <!-- Heading of webpage -->
   <div class="navbar">
-        <img src="https://i.ibb.co/2cCbLyQ/island-labs-FAW-03-1.jpg" width="140"
-        height="140" alt="Island Labs">
+        <a href="/"><img src="https://i.ibb.co/2cCbLyQ/island-labs-FAW-03-1.jpg" width="140"
+        height="140" alt="Island Labs"></a>
         <h1>TEMPLATES</h1>
         <a href="https://twitter.com/Island_Labs" target="_blank" class="twitter-button"><ion-icon name="logo-twitter" ></ion-icon></a>
   </div>
@@ -220,7 +262,7 @@ html {
         top: 240px;
         left: 583px;"></i>
       <input type="hidden" id="drink_id" name="drink" value="https://i.ibb.co/Bs344G7/01-Foreground.png">
-      <p>Select a drink</p>
+      <p>Select an underwater location</p>
           <div class="side_view">
     			<img tabindex="1" src="https://i.ibb.co/Bs344G7/01-Foreground.png" onclick="change(this.src)">
     			<img tabindex="1" src="https://i.ibb.co/T1HdmZM/02-Foreground.png" onclick="change(this.src)">
@@ -244,28 +286,38 @@ html {
         <img src="static/results/logo.png" id="main" alt="Preview">
       {% endif %}
       <p class="visit">
-        Visit <a target="_blank" style="color:#1d9bf0" href="https://fins.wtf/lastcall">fins.wtf</a> to mint free drinks.
+        Visit <a target="_blank" style="color:#1d9bf0" href="https://twitter.com/juicyju33">juicyju33</a> to follow the creator.
       </p>
 	  </div>
-<!--     <p><input class="save" value = "Download" onclick= "save2()"/></p> -->
-<!-- 	</div> -->
+
+  <!--   Side navbar -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/finsbeachbar"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1595924745878261760/oX-6XxL1_400x400.jpg"></a>
+    <a href="/juicyju33"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1608217273512099843/lszp4X80_400x400.jpg"></a>
+    <a href="/NFT_Sushi"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1598755342762008577/nHyHAM3t_400x400.jpg"></a>
+    <a href="#"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1603192226921578496/FlKVIPxT_400x400.png"></a>
+  </div>
+
+  <span style="padding:10px; color:#d4d4cf; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 	<script type="text/javascript">
 		const change = src => {
 			// document.getElementById('main').src = src
       document.getElementById('drink_id').value = src     
 		}
-    // function save2() {
-    //   window.open(canvas.toDataURL("static/results/framed_doodle1.png"));
-    //   var gh = canvas.toDataURL('png');
-  
-    //   var a  = document.createElement('a');
-    //   a.href = gh;
-    //   a.download = 'Doodle.png';
-  
-    //   a.click()
-    // }
 	</script>
+
+  <!--   Side navbar script -->
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
   
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

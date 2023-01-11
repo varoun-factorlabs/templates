@@ -1,0 +1,13 @@
+*{
+  margin:0;
+  padding:0;
+}
+.navbar{
+  width: 30px;
+}
+.img-info p{
+  color: red;
+}
+.img-info h1{
+  background-color: blue;
+}
