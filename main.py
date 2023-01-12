@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 import os
 import proc_fins
 import proc_undr
+import proc_rooms
 
 RESULTS_FOLDER = os.path.join('static', 'results')
 
@@ -27,6 +28,11 @@ def underwater():
 def pip():
   remix = False
   return render_template("gallery3.html", remix=remix)
+
+@app.route('/iamcyclo')
+def room():
+  remix = False
+  return render_template("gallery4.html", remix=remix)
 
 
 @app.route('/templates.xyz')
@@ -105,6 +111,22 @@ def result3():
     AAA = os.path.join(app.config['UPLOAD_FOLDER'], 'AAA.png')
     BBB = os.path.join(app.config['UPLOAD_FOLDER'], 'BBB.png')
     return render_template("gallery3.html", remix=remix, dood_num=Doodle)
+
+@app.route('/iamcyclo', methods=['POST', 'GET'])
+def result4():
+  remix = True
+  if request.method == 'POST':
+    #result = request.form
+    Doodle = request.form.get("Doodle")
+    # if isinstance(Doodle, int) == False:
+    #   raise ValueError("Number missing!")
+    room = request.form.get("room")
+    proc_undr.computePip("AAA.png", "BBB.png", "final_new.png", str(Doodle),
+                         room)
+    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'final_new.png')
+    AAA = os.path.join(app.config['UPLOAD_FOLDER'], 'AAA.png')
+    BBB = os.path.join(app.config['UPLOAD_FOLDER'], 'BBB.png')
+    return render_template("gallery4.html", remix=remix, dood_num=Doodle)
 
 
 app.run(host='0.0.0.0', port=8080)

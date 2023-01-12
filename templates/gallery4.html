@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+        /*Setting Basic Dimensions to give
+        gallery view */
+        * {
+          margin:0;
+          padding:0;
+        }
+        body {
+          background-color: #1f2729;
+          }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            align-items: center;
+            position: absolute;
+            left: 45%; 
+           }
+        p{
+          color: white;
+          font-family: sans-serif;
+          text-align: left;
+          font-size: 24px;
+          padding: 10px;
+          top: 270px;
+          left: 505px;
+          position: absolute;
+        }
+        .navbar{
+        margin: auto;
+        padding: 5px 0;
+        width: 89%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        position: absolute;
+        left: 110px;
+        }
+/*         border: 5px outset white; */
+        .twitter-button{
+          color:#1d9bf0;
+          font-size: 30px;
+          padding: 15px;
+        }
+        .container{
+          font-size: 30px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 500px;
+          width:30%;
+          margin: 10px;
+/*           border: 5px outset white; */
+        }
+        .main_view{
+            height: 30rem;
+            width: 25%;
+            display: block;
+            position: absolute;
+            padding: 5px;
+            right: 120px;
+            top: 320px;
+            background: #8e9194;
+            border-radius: 20px;
+/*             border: 5px outset white; */
+        }
+        .main_view img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            border: 0px #8e9194;
+            border-radius: 20px;
+        }
+        .form-field {
+          display: block;
+          width: 100%;
+          padding: 8px 16px;
+          line-height: 20px;
+          font-size: 24px;
+          font-weight: 500;
+          font-family: sans-serif;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+          -webkit-appearance: none;
+          color: black;
+          border: #ffffff;
+          background: var(whitesmoke);
+          transition: border .3s ease;
+          &::placeholder {
+          color: black;
+    }
+        &:focus {
+          outline: none;
+          border-color: var(white);
+    }
+}
+
+        .form-group {
+          position: absolute;
+          left: 440px;
+          top: 170px;
+          display: flex;
+          width: 17.5%;
+/*           border: 5px outset white; */
+            & > span,
+          }
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+        .side_view{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
+            justify-content: center;
+            flex-wrap: wrap; 
+            position: absolute;
+            top: 320px;
+            padding:5px;
+            width: 50%;
+            left: 130px;
+            margin: 10px;
+        }
+        .side_view img{
+            width: 9rem;
+            height: 9rem;
+            object-fit: fill;
+            cursor: pointer;
+            margin:0.5rem;
+            background: #8e9194;
+            border-radius: 10px; 
+/*             border: solid 4px red; */
+         }
+        .side_view img:focus{
+          border:solid 5px #b1e582;
+          box-shadow: 0 0 10px #333;
+          -webkit-box-shadow: 0 0 10px #333;  
+          -moz-box-shadow: 0 0 10px #333;  
+          -o-box-shadow: 0 0 10px #333;  
+          -ms-box-shadow: 0 0 10px #333;
+        }
+        input[type=submit] {
+        background: #ceb373;
+        border-radius: 15px;
+        border: none;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+        padding: 10px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        position: absolute;
+        top: 550px;
+        left: 48px;
+      }
+        p.visit {
+        white-space: nowrap;
+        border: none;
+        color: white;
+        font-family: sans-serif;
+        font-size: 20px;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        position: absolute;
+        width: 70%;
+        top: 500px;
+        left:80px;
+      }
+/* Sidenav css */
+.circle-img{
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  padding: 10px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #22222b;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: white;
+}
+/* Sidenav css */
+    </style>
+</head>
+
+<body>
+  
+  
+  <!-- Heading of webpage -->
+  <div class="navbar">
+        <a href="/"><img src="https://i.ibb.co/2cCbLyQ/island-labs-FAW-03-1.jpg" width="140"
+        height="140" alt="Island Labs"></a>
+        <h1>TEMPLATES</h1>
+        <a href="https://twitter.com/Island_Labs" target="_blank" class="twitter-button"><ion-icon name="logo-twitter" ></ion-icon></a>
+  </div>
+	   <form action = {{ url_for('result3') }} method = "POST">   
+      <div class="form-group">
+        <span style="text-align: center;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 24px;
+        font-family: sans-serif;
+        line-height: 25px;
+        color: #2d3748;
+        background: #ecf2f6;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px">Doodle ID</span>
+        {% if remix==True %} 
+          <input class="form-field" type="number" min="1" max="9999" id="Doodle_id" name = "Doodle" placeholder="Enter Doodle #" value={{ dood_num }}>
+        {% else %}
+          <input class="form-field" type="number" min="1" max="9999" name = "Doodle" placeholder="Enter Doodle #" value="">
+        {% endif %}
+      </div>
+      <i class="fa fa-plus" 
+        style="font-size:24px;
+        color:white;
+        position: absolute;
+        top: 240px;
+        left: 583px;"></i>
+      <input type="hidden" id="room_id" name="room" value="https://i.ibb.co/872C6Nb/room.png">
+      <p>Select a room</p>
+          <div class="side_view">
+    			<img tabindex="1" src="https://i.ibb.co/872C6Nb/room.png" onclick="change(this.src)">
+  		  </div>
+       <p><input type = "submit" value = "Remix" /></p>
+     </form>
+    
+    <!-- Main view of our gallery -->
+	  <div class="main_view">
+      {% if remix==True %}
+        <img src="static/results/room_merged.png" id="main" alt="Preview">
+      {% else %}
+        <img src="static/results/logo.png" id="main" alt="Preview">
+      {% endif %}
+      <p class="visit">
+        Visit <a target="_blank" style="color:#1d9bf0" href="https://twitter.com/NFT_Sushi">@NFT_Sushi
+</a> to follow the creator.
+      </p>
+	  </div>
+
+  <!--   Side navbar -->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/finsbeachbar"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1595924745878261760/oX-6XxL1_400x400.jpg"></a>
+    <a href="/juicyju33"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1608217273512099843/lszp4X80_400x400.jpg"></a>
+    <a href="/NFT_Sushi"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1598755342762008577/nHyHAM3t_400x400.jpg"></a>
+    <a href="#"><img class="circle-img" src="https://pbs.twimg.com/profile_images/1603192226921578496/FlKVIPxT_400x400.png"></a>
+  </div>
+
+  <span style="padding:10px; color:#d4d4cf; font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+	<script type="text/javascript">
+		const change = src => {
+			// document.getElementById('main').src = src
+      document.getElementById('pip_id').value = src     
+		}
+	</script>
+
+  <!--   Side navbar script -->
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
