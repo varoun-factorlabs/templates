@@ -57,7 +57,7 @@ def computeRoom(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
 
   img_data = requests.get(room_URL).content
 
-  with open('room_image.png', 'wb') as handler:
+  with open('/home/Islandlabflask/templates/static/results/room_image.png', 'wb') as handler:
     handler.write(img_data)
 
   # download doodle image
@@ -94,11 +94,11 @@ def computeRoom(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
 
   img_data = requests.get(image_URL).content
 
-  with open('image_name.jpg', 'wb') as handler:
+  with open('/home/Islandlabflask/templates/static/results/image_dood.jpg', 'wb') as handler:
     handler.write(img_data)
 
-  img = cv2.imread("room.png")
-  imgAug = cv2.imread("image_name.jpg")
+  img = cv2.imread("/home/Islandlabflask/templates/static/results/room_image.png")
+  imgAug = cv2.imread("/home/Islandlabflask/templates/static/results/image_dood.jpg")
 
   arucoFound = findArucoMarkers(img)
 
@@ -107,13 +107,13 @@ def computeRoom(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
       #print(bbox)
       imgNew = augmentAruco(bbox, id, img, imgAug)
 
-      cv2.imwrite("newtest1.png", imgNew)
+      cv2.imwrite("/home/Islandlabflask/templates/static/results/newtest1.png", imgNew)
 
   # Back Image
-  filename = f'newtest1.png'
+  filename = f'/home/Islandlabflask/templates/static/results/newtest1.png'
 
   # Mid Image
-  filename1 = f'room_empty.png'
+  filename1 = f'/home/Islandlabflask/templates/static/results/room_empty.png'
 
   # Open Back Image
   backImage = Image.open(filename)
@@ -127,8 +127,8 @@ def computeRoom(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   # Convert image to RGBA
   midImage = midImage.convert("RGBA")
 
-  WIDTH = 800
-  HEIGHT = 800
+  WIDTH = backImage.size[0]
+  HEIGHT = backImage.size[1]
 
   resized_img = midImage.resize((WIDTH, HEIGHT))
   resized_img.save("resized_image.png")
@@ -140,4 +140,4 @@ def computeRoom(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   back_resized_img.paste(resized_img, (0, 0), resized_img)
 
   # Save this image
-  back_resized_img.save(f"room_merged.png", format="png")
+  back_resized_img.save(f"/home/Islandlabflask/templates/static/results/room_merged.png", format="png")

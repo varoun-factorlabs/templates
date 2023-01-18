@@ -7,7 +7,7 @@ import proc_rooms
 
 RESULTS_FOLDER = os.path.join('static', 'results')
 
-app = Flask('app')
+app = Flask('app', template_folder='/home/Islandlabflask/templates/templates/', static_folder='/home/Islandlabflask/templates/static/')
 
 app.config['UPLOAD_FOLDER'] = RESULTS_FOLDER
 
@@ -121,7 +121,7 @@ def result4():
     # if isinstance(Doodle, int) == False:
     #   raise ValueError("Number missing!")
     room = request.form.get("room")
-    proc_undr.computePip("AAA.png", "BBB.png", "final_new.png", str(Doodle),
+    proc_rooms.computeRoom("AAA.png", "BBB.png", "final_new.png", str(Doodle),
                          room)
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'final_new.png')
     AAA = os.path.join(app.config['UPLOAD_FOLDER'], 'AAA.png')
@@ -129,4 +129,4 @@ def result4():
     return render_template("gallery4.html", remix=remix, dood_num=Doodle)
 
 
-app.run(host='0.0.0.0', port=8080)
+#app.run(host='0.0.0.0', port=8080)

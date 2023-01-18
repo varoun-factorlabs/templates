@@ -27,7 +27,7 @@ def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
 
   # print(DOOD_TKN)
   # print(url)
-              
+
   image_metadata = metadata["metadata"]
 
   image_metadata_json = json.loads(image_metadata)
@@ -35,7 +35,7 @@ def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   image_hash = image_metadata_json["image"][7:]
 
   #image_URL = f'https://ipfs.moralis.io:2053/ipfs/{image_hash}'
-  image_URL = f'https://gateway.moralisipfs.com/ipfs/{image_hash}'          
+  image_URL = f'https://gateway.moralisipfs.com/ipfs/{image_hash}'
 
   print(image_URL)
 
@@ -107,4 +107,4 @@ def compute(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   back_resized_img.paste(resized_img, (0, 0), resized_img)
 
   # Save this image
-  back_resized_img.save(f"static/results/framed_doodle1.png", format="png")
+  back_resized_img.save(f"/home/Islandlabflask/templates/static/results/framed_doodle1.png", format="png")

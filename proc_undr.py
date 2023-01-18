@@ -91,7 +91,7 @@ def computeUnderwater(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   back_resized_img.paste(front_resized_img, (0, 0), front_resized_img)
 
   # Save this image
-  back_resized_img.save(f"static/results/underwater_doodle1.png", format="png")
+  back_resized_img.save(f"/home/Islandlabflask/templates/static/results/underwater_doodle1.png", format="png")
 
 
 ########################################################################
@@ -180,4 +180,4 @@ def computePip(INPUT_FG: str, INPUT_BG: str, OUTPUT: str, DOOD_TKN: str,
   back_resized_img.paste(resized_img, (0, 0), resized_img)
 
   # Save this image
-  back_resized_img.save(f"static/results/pip_doodle1.png", format="png")
+  back_resized_img.save(f"/home/Islandlabflask/templates/static/results/pip_doodle1.png", format="png")
